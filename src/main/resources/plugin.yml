@@ -1,0 +1,40 @@
+name: CubeManiaPhantoms
+version: '${version}'
+main: me.draimgoose.cubemaniaphantoms.Main
+api-version: '1.20'
+author: 'DraimGooSe'
+softdepend:
+  - MultiverseCore
+load: POSTWORLD
+commands:
+  cmphantoms:
+    usage: /cmphantoms <help | togglespawn | kill | reload>
+    permission-message: У вас нет прав.
+permissions:
+  cmphantoms.*:
+    description: Выдаёт все права к плагину CubeManiaPhantoms
+    default: op
+    children:
+      cmphantoms.all: true
+  cmphantoms.all:
+    description: Выдаёт все права к плагину CubeManiaPhantoms
+    children:
+      cmphantoms.reload: true
+      cmphantoms.kill: true
+      cmphantoms.disablespawn.self: true
+      cmphantoms.disablespawn.others: true
+  cmphantoms.reload:
+    description: Перезагружает конфиг плагина
+    default: false
+  cmphantoms.kill:
+    description: Убивает всех фантомов в мире
+    default: false
+  cmphantoms.disablespawn.self:
+    description: Команда отключает спавн фантомов для вас
+    default: op
+  cmphantoms.disablespawn.others:
+    description: Команда отключает спавн фантомов для других игроков
+    default: op
+  cmphantoms.disablespawn.auto:
+    description: Отключает автоматически фантомов
+    default: false
